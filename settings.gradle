@@ -1,2 +1,2 @@
-rootProject.name='FoodSearch'
 include ':app'
+rootProject.name='mini-projet'

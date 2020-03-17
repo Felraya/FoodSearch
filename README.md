@@ -1,2 +1,0 @@
-# FoodSearch
-Appli Mobile
