@@ -4,22 +4,11 @@ package com.example.mini_projet;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-
-import android.widget.SeekBar;
-import android.widget.Toast;
-import android.widget.Spinner;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,12 +24,14 @@ public class ListGenre extends AppCompatActivity {
     private int itemSeekBar;
     private String keyWord;
     private String apiKey = "f4191411045d45d0aed31c69627d5499";
+    private TextView nbsearch;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         resultats = findViewById(R.id.seekBar);
+        nbsearch = findViewById(R.id.NbSearch);
         spinner = findViewById(R.id.spinner);
         bouton = findViewById(R.id.rechercher);
         search = findViewById(R.id.search);
@@ -64,6 +55,8 @@ public class ListGenre extends AppCompatActivity {
 
         spinner.setAdapter(aa);
 
+        nbsearch.setText("0");
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -80,6 +73,7 @@ public class ListGenre extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 itemSeekBar = progress;
+                nbsearch.setText(String.valueOf(progress));
             }
 
             @Override
@@ -98,9 +92,12 @@ public class ListGenre extends AppCompatActivity {
                 keyWord = search.getText().toString();
             }
         });
-            String jsonText = "https://api.spoonacular.com/recipes/search?query="+keyWord+"&cuisine="+itemSpinner+"&number="+itemSeekBar+"&apiKey=" + apiKey;
 
-            //JSONObject json = JSONReader.readJsonFromUrl("https://api.spoonacular.com/recipes/search?query=cheese&cuisine=italian&number=3&apiKey=" + apiKey);
+
+
+        String jsonText = "https://api.spoonacular.com/recipes/search?query="+keyWord+"&cuisine="+itemSpinner+"&number="+itemSeekBar+"&apiKey=" + apiKey;
+
+        //JSONObject json = JSONReader.readJsonFromUrl("https://api.spoonacular.com/recipes/search?query=cheese&cuisine=italian&number=3&apiKey=" + apiKey);
 
         }
 
