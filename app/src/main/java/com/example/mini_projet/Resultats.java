@@ -1,5 +1,6 @@
 package com.example.mini_projet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,13 +16,19 @@ public class Resultats extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultats);
 
-    lv = findViewById(R.id.results);
+        Bundle extras = getIntent().getExtras();
 
-    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (extras == null) {
+            return; }
 
-        }
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent ajouteIntent = new Intent(Resultats.this, Description.class);
+                //modifier les données que l'on passe à la troisième activité une fois que le JSON fonctionne
+                //startActivityForResult(ajouteIntent.putCharSequenceArrayListExtra());
+            }
     });
     }
 
