@@ -25,9 +25,11 @@ public class Resultats extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent ajouteIntent = new Intent(Resultats.this, Description.class);
                 //modifier les données que l'on passe à la troisième activité une fois que le JSON fonctionne
-                //startActivityForResult(ajouteIntent.putCharSequenceArrayListExtra());
+                //Recette current = recettes.courante();
+                Intent detailIntent = new Intent(Resultats.this, Description.class);
+                //detailIntent.putExtra("tout",current);
+                startActivity(detailIntent);
             }
     });
     }
