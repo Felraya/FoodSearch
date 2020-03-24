@@ -96,14 +96,14 @@ public class ListGenre extends AppCompatActivity {
 
 
         String jsonText = "https://api.spoonacular.com/recipes/search?query="+keyWord+"&cuisine="+itemSpinner+"&number="+itemSeekBar+"&apiKey=" + apiKey;
+        //https://api.spoonacular.com/recipes/search?query=cheese&cuisine=Nordic&number=10&apiKey=f4191411045d45d0aed31c69627d5499
+        //info par id :
+        //https://api.spoonacular.com/recipes/{id}/information?apiKey=f4191411045d45d0aed31c69627d5499
+        //130953
 
         //JSONObject json = JSONReader.readJsonFromUrl("https://api.spoonacular.com/recipes/search?query=cheese&cuisine=italian&number=3&apiKey=" + apiKey);
 
         }
-
-
-
-
 
 
 }
