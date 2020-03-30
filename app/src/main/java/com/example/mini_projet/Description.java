@@ -2,6 +2,7 @@ package com.example.mini_projet;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
@@ -43,14 +44,15 @@ public class Description extends AppCompatActivity {
 
         Intent intent = getIntent();
         img = intent.getStringExtra("img");
-        title = intent.getStringExtra("titre");
+        //title = intent.getStringExtra("titre");
         desc = intent.getStringExtra("recette");
         temps = intent.getIntExtra("temps", 0);
         //System.out.println(img);
         Picasso.get().load(img).into(image);
-        //titre.setText(title);
+        titre.setText(title);
         recette.setText(desc);
         time.setText(String.valueOf(temps)+"'");
+        recette.setMovementMethod(new ScrollingMovementMethod());
 
 
 
