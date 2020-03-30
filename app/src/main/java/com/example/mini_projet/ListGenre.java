@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.content.Intent;
 
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +42,7 @@ public class ListGenre extends AppCompatActivity {
     private Spinner spinner;
     private Button bouton;
     private EditText search;
+    private TextView search_number;
     private String itemSpinner;
     private int itemSeekBar;
     private String keyWord;
@@ -54,7 +56,9 @@ public class ListGenre extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         bouton = findViewById(R.id.rechercher);
         search = findViewById(R.id.search);
+        search_number = findViewById(R.id.search_number);
 
+        search_number.setText("0");
 
         String [] place = { "African" ,"American" ,"British" ,"Cajun" ,"Caribbean" ,"Chinese" ,"Eastern European" ,"European" ,
                 "French" ,"German" ,"Greek" ,"Indian" ,"Irish" ,"Italian" ,"Japanese" ,"Jewish" ,"Korean" ,
@@ -90,6 +94,7 @@ public class ListGenre extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 itemSeekBar = progress;
+                search_number.setText(Integer.toString(progress));
             }
 
             @Override
@@ -107,7 +112,7 @@ public class ListGenre extends AppCompatActivity {
             public void onClick(View v){
                 keyWord = search.getText().toString();
                 //String urlJson = "https://api.spoonacular.com/recipes/search?query="+keyWord+"&cuisine="+itemSpinner+"&number="+itemSeekBar+"&apiKey="+apiKey;
-                Intent i = new Intent(ListGenre.this, Resultats.class);
+                final Intent i = new Intent(ListGenre.this, Resultats.class);
                 Ion.with(v.getContext())
                         .load("https://api.spoonacular.com/recipes/search?query="+keyWord+"&cuisine="+itemSpinner+"&number="+itemSeekBar+"&apiKey="+apiKey)
                         .setLogging("ION_LOGS", Log.DEBUG)

@@ -49,7 +49,7 @@ public class Resultats extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = (String) listview.getItemAtPosition(position);
                 int i = listId.get(position);
-                Intent in = new Intent(Resultats.this,Description.class);
+                final Intent in = new Intent(Resultats.this,Description.class);
                 Ion.with(view.getContext())
                         .load( "https://api.spoonacular.com/recipes/"+i+"/information?apiKey="+apiKey)
                         .setLogging("ION_LOGS", Log.DEBUG)
