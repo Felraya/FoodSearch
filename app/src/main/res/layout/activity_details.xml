@@ -18,13 +18,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.099"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="One Pot Baked Ziti"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +37,6 @@
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="45'"
         android:textSize="25dp"
         android:textColor="@android:color/holo_orange_dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:text="Heat olive oil in a large skillet over medium high heat. Add Italian sausage and cook until browned, about 3-5 minutes, making sure to crumble the sausage as it cooks. Stir in garlic and red pepper"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

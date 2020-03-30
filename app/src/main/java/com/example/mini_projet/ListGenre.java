@@ -56,10 +56,10 @@ public class ListGenre extends AppCompatActivity {
         search = findViewById(R.id.search);
 
 
-        String [] place = { " African " ," American " ," British " ," Cajun " ," Caribbean " ," Chinese " ," Eastern European " ," European " ,
-                " French " ," German " ," Greek " ," Indian " ," Irish " ," Italian " ," Japanese " ," Jewish " ," Korean " ,
-                " Latin American " ," Mediterranean " ," Mexican " ," Middle Eastern " ," Nordic " ," Southern " ," Spanish " ," Thai " ,
-                " Vietnamese " };
+        String [] place = { "African" ,"American" ,"British" ,"Cajun" ,"Caribbean" ,"Chinese" ,"Eastern European" ,"European" ,
+                "French" ,"German" ,"Greek" ,"Indian" ,"Irish" ,"Italian" ,"Japanese" ,"Jewish" ,"Korean" ,
+                "Latin American" ,"Mediterranean" ,"Mexican" ,"Middle Eastern" ,"Nordic" ,"Southern" ,"Spanish" ,"Thai" ,
+                "Vietnamese" };
 
         ArrayList<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(place));
@@ -117,11 +117,18 @@ public class ListGenre extends AppCompatActivity {
                             public void onCompleted(Exception e, JsonObject result) {
                                 // do stuff with the result of error
                                 ArrayList<String> list = new ArrayList<>();
+                                ArrayList<Integer> listId = new ArrayList<>();
                                 JsonArray res = result.get("results").getAsJsonArray();
+                                // ajout des valeurs dans les listes
                                 for(int i = 0; i < res.size(); i++){
                                     list.add(res.get(i).getAsJsonObject().get("title").getAsString());
+                                    listId.add(res.get(i).getAsJsonObject().get("id").getAsInt());
                                 }
-                                System.out.println(list);
+                                i.putStringArrayListExtra("titre",list);
+                                i.putExtra("id",listId);
+                                startActivity(i);
+                                finish();
+                                //System.out.println(list);
 
                             }
 
