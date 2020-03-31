@@ -65,6 +65,7 @@ public class ListGenre extends AppCompatActivity {
                 "Latin American" ,"Mediterranean" ,"Mexican" ,"Middle Eastern" ,"Nordic" ,"Southern" ,"Spanish" ,"Thai" ,
                 "Vietnamese" };
 
+
         ArrayList<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(place));
         /* afficher éléments de la liste
