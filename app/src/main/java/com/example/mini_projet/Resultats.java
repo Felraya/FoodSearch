@@ -85,6 +85,7 @@ public class Resultats extends AppCompatActivity {
                                 in.putExtra("recette",instruc);
                                 in.putExtra("titre", titre);
                                 in.putExtra("temps", temps);
+                                in.putExtra("titre", item);
                                 startActivity(in);
                                 finish();
 

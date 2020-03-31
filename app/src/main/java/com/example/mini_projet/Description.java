@@ -44,14 +44,14 @@ public class Description extends AppCompatActivity {
 
         Intent intent = getIntent();
         img = intent.getStringExtra("img");
-        //title = intent.getStringExtra("titre");
+        title = intent.getStringExtra("titre");
         desc = intent.getStringExtra("recette");
         temps = intent.getIntExtra("temps", 0);
         //System.out.println(img);
         Picasso.get().load(img).into(image);
         titre.setText(title);
         recette.setText(desc);
-        time.setText(String.valueOf(temps)+"'");
+        time.setText(String.valueOf(temps)+" min");
         recette.setMovementMethod(new ScrollingMovementMethod());
 
 

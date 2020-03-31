@@ -1,6 +1,7 @@
 package com.example.mini_projet;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -57,8 +58,7 @@ public class ListGenre extends AppCompatActivity {
         bouton = findViewById(R.id.rechercher);
         search = findViewById(R.id.search);
         search_number = findViewById(R.id.search_number);
-
-        search_number.setText("0");
+        search_number.setText("1");
 
         String [] place = { "African" ,"American" ,"British" ,"Cajun" ,"Caribbean" ,"Chinese" ,"Eastern European" ,"European" ,
                 "French" ,"German" ,"Greek" ,"Indian" ,"Irish" ,"Italian" ,"Japanese" ,"Jewish" ,"Korean" ,
@@ -130,11 +130,22 @@ public class ListGenre extends AppCompatActivity {
                                     list.add(res.get(i).getAsJsonObject().get("title").getAsString());
                                     listId.add(res.get(i).getAsJsonObject().get("id").getAsInt());
                                 }
-                                i.putStringArrayListExtra("titre",list);
-                                i.putExtra("id",listId);
-                                startActivity(i);
-                                finish();
-                                //System.out.println(list);
+                                if(list.size() == 0){
+                                    Context context = getApplicationContext();
+                                    int duration = Toast.LENGTH_LONG;
+                                    Toast toast = Toast.makeText(context,"Aucune recette trouvée ..", duration);
+                                    toast.show();
+
+                                } else {
+                                    i.putStringArrayListExtra("titre",list);
+                                    i.putExtra("id",listId);
+                                    startActivity(i);
+                                    finish();
+                                    //System.out.println(list);
+
+                                }
+
+
 
                             }
 
